@@ -7,9 +7,9 @@ const Navbar = () => {
 
 
     const navComponents = <>
-        <Link to="/"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></Link>
+        <NavLink to="/"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></NavLink>
         <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Tracking</a></li>
-        <Link to="/about"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li></Link>
+        <NavLink to="/about"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li></NavLink>
         <NavLink to="/price"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li></NavLink>
         <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Contact</a></li>
         <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Career</a></li>

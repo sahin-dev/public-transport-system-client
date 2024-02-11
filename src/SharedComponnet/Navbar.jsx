@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="navbar flex-col md:flex-row lg:flex-row bg-blue-200 text-neutral-content">
                 <Link to="/"><button className="btn btn-ghost text-xl text-blue-800 font-sans font-semibold">
                     <span ><img className="w-[25px] h-[25px]" src={logo}></img></span>Fare Well</button></Link>
-                <div className="text-black font-extrabold  mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-blue-600 ml-2">  +8801701474332</span></div>
+                <div className="text-black font-extrabold  mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-blue-600 ml-2">  +88 0170000000</span></div>
 
                 <Link to="/login"><button className="bg-blue-700 hover:bg-blue-900 text-white btn  font-bold">Sign In</button></Link>
 

@@ -1,5 +1,6 @@
 
 
+import axios from 'axios';
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
@@ -43,11 +44,11 @@ const Registration = () => {
             if (!values.phonenumber) {
                 errors.phonenumber = 'Required Phone Number';
             }
-            if (!values.location) {
-                errors.location = 'Required Location';
+            if (!values.dob) {
+                errors.location = 'Required Date of Birth';
             }
-            if (!values.photo) {
-                errors.location = 'Required PhotoLink';
+            if (!values.nid) {
+                errors.location = 'Required NID number';
             }
             if (!values.password) {
                 errors.password = 'Required';
@@ -64,6 +65,16 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
+            const userData = {name:values.name, email:values.email,password:values.password,nid:values.nid,dob:values.dob}
+            axios.post("/api/users",userData)
+            .then(response => {
+                // Handle successful registration response
+                console.log(response.data);
+              })
+              .catch(error => {
+                // Handle registration error
+                console.error('Registration failed:', error);
+              });
             setError("")
             
 
@@ -133,19 +144,19 @@ const Registration = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-lg font-bold">Your Photo Link</span>
+                                    <span className="label-text text-lg font-bold">NID Number</span>
                                 </label>
-                                <input type="url" id="photo" name='photo' placeholder="Host your image and paste here the link" onChange={formik.handleChange}
-                                    value={formik.values.photo} className="input input-bordered" required />
-                                {formik.touched.photo && formik.errors.photo && <p className='text-red-500'>{formik.errors.photo}</p>}
+                                <input type="number" id="nid" name='nid' placeholder="NID Number" onChange={formik.handleChange}
+                                    value={formik.values.nid} className="input input-bordered" required />
+                                {formik.touched.nid && formik.errors.nid && <p className='text-red-500'>{formik.errors.nid}</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-lg font-bold">Your Location</span>
+                                    <span className="label-text text-lg font-bold">Date of Birth</span>
                                 </label>
-                                <input type="text" id="location" name='location' placeholder="Type your District Name, Example: Dhaka" onChange={formik.handleChange}
-                                    value={formik.values.location} className="input input-bordered" required />
-                                {formik.touched.location && formik.errors.location && <p className='text-red-500'>{formik.errors.location}</p>}
+                                <input type="date" id="dob" name='dob' placeholder="Date of Birth" onChange={formik.handleChange}
+                                    value={formik.values.dob} className="input input-bordered" required />
+                                {formik.touched.dob && formik.errors.dob && <p className='text-red-500'>{formik.errors.dob}</p>}
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Register</button>

@@ -7,13 +7,15 @@ const Navbar = () => {
 
 
     const navComponents = <>
-        <NavLink to="/"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Home</a></li></NavLink>
-        <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Tracking</a></li>
-        <NavLink to="/about"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>About</a></li></NavLink>
-        <NavLink to="/price"><li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Pricing</a></li></NavLink>
-        <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Contact</a></li>
-        <li className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg"><a>Career</a></li>
-        <NavLink to="/dashbord"><li className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg"><a>DASHBORD</a></li></NavLink>
+    
+       <li> <NavLink to="/" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Home</NavLink></li>
+       <li> <NavLink to="/track" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Tracking</NavLink></li>
+        
+        <li><NavLink to="/about" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">About</NavLink></li>
+        <li><NavLink to="/price" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Pricing</NavLink></li>
+        <li><NavLink to ="/contact" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Contact</NavLink></li>
+        <li><NavLink to="/career" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Career</NavLink></li>
+        <li><NavLink to="/dashbord" className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg mr-4">DASHBORD</NavLink></li>
 
 
     </>

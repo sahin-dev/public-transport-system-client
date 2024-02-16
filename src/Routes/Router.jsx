@@ -7,6 +7,7 @@ import App from "../App";
 import Error from "../Error/Error";
 import Registration from "../Authentication/Registartion";
 import SignIn from "../Authentication/SignIn";
+import Apply from "../Career/Apply";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -20,6 +21,10 @@ const Router = createBrowserRouter([
             {
                 path:"/login",
                 element:<SignIn></SignIn>
+            },
+            {
+                path:"/career",
+                element:<Apply></Apply>
             }
         ]
         

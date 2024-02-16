@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import { MdOutlineLogin } from "react-icons/md";
-import { FcGoogle } from "react-icons/fc";
+
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import {  useState } from 'react';
@@ -55,8 +55,8 @@ const SignIn = () => {
             <div className=" min-h-screen  mt-44 md:mt-32 lg:mt-36 ">
                 <div className=" flex-col ">
                     <div className="text-center flex items-center justify-center lg:text-left">
-                        <h1 className="text-5xl text-yellow-600  text-center font-bold p-8">Login</h1>
-                        <MdOutlineLogin className="text-5xl text-yellow-600"></MdOutlineLogin>
+                        <h1 className="text-5xl text-blue-600  text-center font-bold p-8">Login</h1>
+                        <MdOutlineLogin className="text-5xl text-blue-600"></MdOutlineLogin>
 
                     </div>
                     <div className="card w-1/2 mx-auto  shadow-2xl ">
@@ -79,7 +79,7 @@ const SignIn = () => {
                                         value={formik.values.password} className="  w-3/4 input input-bordered" required />
 
                                     {formik.touched.password && formik.errors.password && <p className='text-red-500'>{formik.errors.password}</p>}
-                                    <p className='btn text-yellow-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
+                                    <p className='btn text-blue-600 text-lg w-1/3' onClick={() => setShowpassword(!showPassword)}>{showPassword ? "Hidden Password" : "Show Password"}</p>
                                 </div>
                                 <label className="label">
                                     <a href="#" className="label-text text-lg text-blue-600  font-bold link link-hover">Forgot password?</a>
@@ -87,12 +87,9 @@ const SignIn = () => {
                                 {error && <p className='text-red-600'>{error}</p>}
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn bg-yellow-700 text-2xl font-semibold text-white hover:bg-yellow-800 btn-primary">Login</button>
+                                <button className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Login</button>
                             </div>
-                            <p className="mt-6 text-center font-semibold"> or, Continue with </p>
-                            <div className=" flex items-center justify-center mt-6">
-                                <button  className="text-3xl flex items-center justify-center"><FcGoogle></FcGoogle></button>
-                            </div>
+                            
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>
 

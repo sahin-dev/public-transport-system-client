@@ -9,6 +9,8 @@ const RouteSchema = new mongoose.Schema({
         type:Object,
         required:true
     }
+},{
+    timestamps:true
 })
 
 const Route = mongoose.model("Route", RouteSchema);

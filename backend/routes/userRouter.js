@@ -1,6 +1,6 @@
-var express = require('express');
+const express = require('express');
 const {getUser,loginUser, registerUser} = require('../controllers/userController');
-var router = express.Router();
+const router = express.Router();
 const {protect} = require('../middlewares/authMiddleware')
 
 /* GET users listing. */

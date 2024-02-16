@@ -21,6 +21,10 @@ const userSchema = mongoose.Schema(
         type:String,
         required:true,
       },
+      wallet:{
+        type:Object,
+        required:true,
+      },
       birth_date:{
         type:Date,
         required:true,

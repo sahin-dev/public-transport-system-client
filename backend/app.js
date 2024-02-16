@@ -1,10 +1,12 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/userRoutes');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/userRouter');
+const routeRouter = require('./routes/routeRouter');
+const passengerRouter = require('./routes/passengerRoutes');
 const connectDb = require('./config/db');
 const dotenv = require('dotenv');
 
@@ -21,7 +23,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use('/api/users', usersRouter);
+
+app.use('/api/users', userRouter);
+app.use('/api/routes',routeRouter);
+app.use('/api/passengers',passengerRouter);
 app.use('/', indexRouter);
 
 

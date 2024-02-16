@@ -1,10 +1,11 @@
 
 
-import axios from 'axios';
+
 import { useFormik } from 'formik';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
+import PublicApi from '../Hooks/PublicApi';
 
 
 
@@ -12,6 +13,7 @@ import { Link } from "react-router-dom";
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
+    const public_url= PublicApi()
 
 
     const formik = useFormik({
@@ -21,8 +23,8 @@ const Registration = () => {
             password: "",
             occupation: "",
             phonenumber: "",
-            location: "",
-            photo: "",
+            dob: "",
+            nid: "",
 
 
         },
@@ -45,10 +47,10 @@ const Registration = () => {
                 errors.phonenumber = 'Required Phone Number';
             }
             if (!values.dob) {
-                errors.location = 'Required Date of Birth';
+                errors.dob = 'Required Date of Birth';
             }
             if (!values.nid) {
-                errors.location = 'Required NID number';
+                errors.nid = 'Required NID number';
             }
             if (!values.password) {
                 errors.password = 'Required';
@@ -65,18 +67,18 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
-            const userData = {name:values.name, email:values.email,password:values.password,nid:values.nid,dob:values.dob}
-            axios.post("/api/users",userData)
-            .then(response => {
-                // Handle successful registration response
-                console.log(response.data);
-              })
-              .catch(error => {
-                // Handle registration error
-                console.error('Registration failed:', error);
-              });
+            const userData = { name: values.name, email: values.email, password: values.password, nid: values.nid, dob: values.dob }
+            public_url.post("/api/users", userData)
+                .then(response => {
+                    // Handle successful registration response
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle registration error
+                    console.error('Registration failed:', error);
+                });
             setError("")
-            
+
 
         }
     })

@@ -3,13 +3,15 @@ import { MdOutlineLogin } from "react-icons/md";
 
 import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
-import {  useState } from 'react';
+import { useState } from 'react';
+import PublicApi from '../Hooks/PublicApi';
 
 const SignIn = () => {
     const [showPassword, setShowpassword] = useState(false)
-    const [error,setError] = useState("")
-  
-    
+    const [error, setError] = useState("")
+    const public_url = PublicApi()
+
+
     const formik = useFormik({
         initialValues: {
 
@@ -41,8 +43,18 @@ const SignIn = () => {
         },
         onSubmit: values => {
             setError("")
-          
-            console.log(values);
+            const data = { email: values.email, password: values.password }
+            console.log(data);
+
+            public_url.post("api/users/login", data)
+                .then(response => {
+                    // Handle successful registration response
+                    console.log(response.data);
+                })
+                .catch(error => {
+                    // Handle registration error
+                    console.error('Registration failed:', error);
+                });
 
         }
     })
@@ -89,7 +101,7 @@ const SignIn = () => {
                             <div className="form-control mt-6">
                                 <button className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Login</button>
                             </div>
-                            
+
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>
 

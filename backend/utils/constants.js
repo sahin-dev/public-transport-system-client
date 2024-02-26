@@ -1,6 +1,0 @@
-const PASSENGER = 1;
-const VEHICLE_OWNER =2;
-const SUPERVISER = 3;
-const ADMIN = 420;
-
-module.exports = {PASSENGER,VEHICLE_OWNER,SUPERVISER,ADMIN}

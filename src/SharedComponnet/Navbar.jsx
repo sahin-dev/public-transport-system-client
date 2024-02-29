@@ -5,11 +5,19 @@ import logo from "../../public/logo/logo.png"
 import { useContext } from "react";
 import { BusContextData } from "../Context/BusContext";
 import profilePhoto from "../../public/Profile/profilephoto.png"
+import Swal from "sweetalert2";
 
 const Navbar = () => {
     const{userLog,logOut} = useContext(BusContextData)
     const logOutFromProfile=()=>{
         logOut()
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "LogOut Successful",
+            showConfirmButton: false,
+            timer: 1500
+        });
     }
 
     

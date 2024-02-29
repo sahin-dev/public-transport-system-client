@@ -2,20 +2,32 @@
 import { Link, NavLink } from "react-router-dom";
 import { IoCallSharp } from "react-icons/io5";
 import logo from "../../public/logo/logo.png"
+import { useContext } from "react";
+import { BusContextData } from "../Context/BusContext";
+import profilePhoto from "../../public/Profile/profilephoto.png"
 
 const Navbar = () => {
+    const{userLog,logOut} = useContext(BusContextData)
+    const logOutFromProfile=()=>{
+        logOut()
+    }
+
+    
+
+
+
 
 
     const navComponents = <>
     
-       <li> <NavLink to="/" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Home</NavLink></li>
-       <li> <NavLink to="/track" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Tracking</NavLink></li>
+       <li> <NavLink to="/" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Home</NavLink></li>
+       <li> <NavLink to="/track" className="font-bold hover:text-blue-600 text-base hover:font-bold hover:text-xl  mr-4">Tracking</NavLink></li>
         
-        <li><NavLink to="/about" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">About</NavLink></li>
-        <li><NavLink to="/price" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Pricing</NavLink></li>
-        <li><NavLink to ="/contact" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Contact</NavLink></li>
-        <li><NavLink to="/career" className="font-bold hover:text-blue-600 hover:font-bold hover:text-2xl text-lg mr-4">Career</NavLink></li>
-        <li><NavLink to="/dashbord" className="font-bold hover:text-blue-500 hover:font-bold hover:text-2xl text-lg mr-4">DASHBORD</NavLink></li>
+        <li><NavLink to="/about" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">About</NavLink></li>
+        <li><NavLink to="/price" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Pricing</NavLink></li>
+        <li><NavLink to ="/contact" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Contact</NavLink></li>
+        <li><NavLink to="/career" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Career</NavLink></li>
+        <li><NavLink to="/dashbord" className="font-bold hover:text-blue-500 hover:font-bold text-base hover:text-xl  mr-4">DASHBORD</NavLink></li>
 
 
     </>
@@ -26,9 +38,33 @@ const Navbar = () => {
                     <span ><img className="w-[25px] h-[25px]" src={logo}></img></span>Fare Well</button></Link>
                 <div className="text-black font-extrabold  mx-auto"><IoCallSharp className="mr-2" /> Call us  :   <span className="text-blue-600 ml-2">  +88 0170000000</span></div>
 
-                <Link to="/login"><button className="bg-blue-700 hover:bg-blue-900 text-white btn  font-bold">Sign In</button></Link>
+                {
+                    userLog ? <div className=" flex gap-4 ml-[200px]">
+                        <div>
+                            <p className="text-black">{userLog?.name}</p>
+                        </div>
+                        <div className="dropdown dropdown-end">
+                            <div tabIndex={0} role="button" className="btn flex btn-ghost btn-circle avatar">
+
+                                <div className="w-10  rounded-full">
+                                    {
+                                        userLog?.photo? <img className="flex-1" src={userLog.photoURL} />:
+                                        <img className="flex-1" src={profilePhoto} />
+
+                                    }
+                                    
 
 
+                                </div>
+                            </div>
+                            <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                                <button onClick={logOutFromProfile}  className="text-black">LogOut</button>
+
+                            </ul>
+                        </div>
+                    </div>
+                        : <Link to="/login"><button className="bg-yellow-600 text-white btn ml-[900px]  font-bold">Sign In</button></Link>
+                }
 
             </div>
 

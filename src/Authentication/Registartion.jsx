@@ -5,7 +5,9 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from "react-router-dom";
-import PublicApi from '../Hooks/PublicApi';
+import UsePublicApi from '../Hooks/UsePublicApi';
+import Swal from 'sweetalert2';
+
 
 
 
@@ -13,7 +15,7 @@ import PublicApi from '../Hooks/PublicApi';
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
-    const public_url= PublicApi()
+    const public_url= UsePublicApi()
 
 
     const formik = useFormik({
@@ -71,7 +73,15 @@ const Registration = () => {
             public_url.post("/api/users", userData)
                 .then(response => {
                     // Handle successful registration response
-                    console.log(response.data);
+                    if(response.data._id){
+                        Swal.fire({
+                            position: "center",
+                            icon: "success",
+                            title: "Registration  Successful !",
+                            showConfirmButton: false,
+                            timer: 1200
+                          });
+                    }
                 })
                 .catch(error => {
                     // Handle registration error

@@ -1,15 +1,45 @@
 import { useFormik } from 'formik';
 import { MdOutlineLogin } from "react-icons/md";
 
-import { Link } from "react-router-dom";
+import { Link, json, useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
-import { useState } from 'react';
-import PublicApi from '../Hooks/PublicApi';
+import { useEffect, useState } from 'react';
+import UsePublicApi from '../Hooks/UsePublicApi';
+import Swal from 'sweetalert2';
+
+
+
 
 const SignIn = () => {
     const [showPassword, setShowpassword] = useState(false)
+    // const [userName, setUserName] = useState(null)
+    const [userinfo, setUserInfo] = useState(null)
     const [error, setError] = useState("")
-    const public_url = PublicApi()
+    const public_url = UsePublicApi()
+    const navigate = useNavigate()
+
+
+    useEffect(() => {
+        console.log("userName updated:", userinfo);
+        setUserInfo(userinfo)
+        if (userinfo) {
+
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Login Successful",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            // userInformation is set to the localStorage for context Data
+            localStorage.setItem("userinfo", JSON.stringify(userinfo))
+            navigate("/")
+
+
+
+
+        }
+    }, [userinfo, navigate]);
 
 
     const formik = useFormik({
@@ -41,21 +71,29 @@ const SignIn = () => {
             return errors
 
         },
-        onSubmit: values => {
+        onSubmit: async values => {
             setError("")
             const data = { email: values.email, password: values.password }
             console.log(data);
+            try {
 
-            public_url.post("api/users/login", data)
-                .then(response => {
-                    // Handle successful registration response
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    // Handle registration error
-                    console.error('Registration failed:', error);
-                });
+                const response = await public_url.post("api/users/login", data)
+                const userData = {
+                    name: response.data.name,
+                    email: response.data.email,
+                    id: response.data.id,
+                    token: response.data.token
+                }
 
+                if (response?.data) {
+                    // setUserName(response?.data.name)
+                    setUserInfo(userData)
+
+                }
+            }
+            catch (error) {
+                setError(error.message)
+            }
         }
     })
     return (
@@ -100,8 +138,11 @@ const SignIn = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Login</button>
+
                             </div>
 
+
+                           
                             <div className="flex flex-col w-full">
                                 <div className="divider divider-start"></div>
 

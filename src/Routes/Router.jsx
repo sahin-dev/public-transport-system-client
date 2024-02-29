@@ -8,12 +8,18 @@ import Error from "../Error/Error";
 import Registration from "../Authentication/Registartion";
 import SignIn from "../Authentication/SignIn";
 import Apply from "../Career/Apply";
+import Home from "../Home/Home";
 const Router = createBrowserRouter([
     {
         path: "/",
         element: <App></App>,
         errorElement:<Error></Error>,
         children:[
+            {
+                path:"/",
+                element:<Home></Home>
+
+            },
             {
                 path:"/register",
                 element:<Registration></Registration>
@@ -25,7 +31,9 @@ const Router = createBrowserRouter([
             {
                 path:"/career",
                 element:<Apply></Apply>
-            }
+            },
+          
+
         ]
         
     },

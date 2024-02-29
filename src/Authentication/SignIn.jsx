@@ -44,15 +44,14 @@ const SignIn = () => {
         onSubmit: values => {
             setError("")
             const data = { email: values.email, password: values.password }
-            console.log(data);
 
             public_url.post("api/users/login", data)
                 .then(response => {
-                    // Handle successful registration response
+                    // Handle successful login response
                     console.log(response.data);
                 })
                 .catch(error => {
-                    // Handle registration error
+                    // Handle login error
                     console.error('Registration failed:', error);
                 });
 

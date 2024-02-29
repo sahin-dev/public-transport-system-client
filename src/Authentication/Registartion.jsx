@@ -13,7 +13,7 @@ import PublicApi from '../Hooks/PublicApi';
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
-    const public_url= PublicApi()
+    const public_url = PublicApi()
 
 
     const formik = useFormik({
@@ -25,6 +25,7 @@ const Registration = () => {
             phonenumber: "",
             dob: "",
             nid: "",
+            role: ""
 
 
         },
@@ -52,6 +53,9 @@ const Registration = () => {
             if (!values.nid) {
                 errors.nid = 'Required NID number';
             }
+            if(!values.role){
+                errors.role = "Role is required";
+            }
             if (!values.password) {
                 errors.password = 'Required';
             } else if (
@@ -67,7 +71,7 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
-            const userData = { name: values.name, email: values.email, password: values.password, nid: values.nid, dob: values.dob }
+            const userData = { name: values.name, email: values.email,phone:values.phonenumber,occupation:values.occupation, password: values.password, nid: values.nid, dob: values.dob,role:values.role }
             public_url.post("/api/users", userData)
                 .then(response => {
                     // Handle successful registration response
@@ -159,6 +163,20 @@ const Registration = () => {
                                 <input type="date" id="dob" name='dob' placeholder="Date of Birth" onChange={formik.handleChange}
                                     value={formik.values.dob} className="input input-bordered" required />
                                 {formik.touched.dob && formik.errors.dob && <p className='text-red-500'>{formik.errors.dob}</p>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-lg font-bold">Role</span>
+                                </label>
+                                <select name="role" id="role" onChange={formik.handleChange}>
+                                    <option value="">--Please choose role--</option>
+                                    <option value="passenger">Passenger</option>
+                                    <option value="owner">Owner</option>
+                                    <option value="driver">Driver</option>
+                                    <option value="supervisor">Supervisor</option>
+                                    
+                                </select>
+                                {formik.touched.role && formik.errors.role && <p className='text-red-500'>{formik.errors.role}</p>}
                             </div>
                             <div className="form-control mt-6">
                                 <button type='submit' className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Register</button>

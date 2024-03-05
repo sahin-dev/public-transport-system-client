@@ -61,7 +61,7 @@ const Apply = () => {
                 <title>Apply</title>
 
             </Helmet>
-            <div className=" min-h-screen  mt-44 md:mt-32 lg:mt-36 ">
+            <div className=" min-h-screen  ml-[300px] w-full ">
                 <div className=" flex-col ">
                     <div className="text-center flex items-center justify-center lg:text-left">
                         <h1 className="text-5xl text-blue-600  text-center font-bold p-8">Transport Owner Information</h1>

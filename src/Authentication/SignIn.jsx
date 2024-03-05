@@ -34,7 +34,8 @@ const SignIn = () => {
             // userInformation is set to the localStorage for context Data
             localStorage.setItem("userinfo", JSON.stringify(userinfo))
             navigate("/")
-
+            window.location.reload()
+            
 
 
 
@@ -82,7 +83,8 @@ const SignIn = () => {
                     name: response.data.name,
                     email: response.data.email,
                     id: response.data.id,
-                    token: response.data.token
+                    token: response.data.token,
+                    role: response.data.role
                 }
 
                 if (response?.data) {

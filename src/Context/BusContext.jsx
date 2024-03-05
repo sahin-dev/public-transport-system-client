@@ -4,8 +4,9 @@
 
 import { createContext, useEffect, useState } from "react";
 
+
 // use export for accessing the context itself 
-export const BusContextData = createContext("")
+export const BusContextData = createContext(null)
 
 
 
@@ -30,12 +31,12 @@ const BusContext = ({ children }) => {
     const logOut=()=>{
         localStorage.removeItem("userinfo")
         setUserLog("")
+       
     }
    
 
     let value = { userLog,logOut }
-    console.log("context Value",value);
-
+    
    
 
     return (

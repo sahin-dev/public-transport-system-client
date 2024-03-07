@@ -15,12 +15,10 @@ import Swal from 'sweetalert2';
 const Registration = () => {
     const [showPassword, setShowpassword] = useState(false)
     const [error, setError] = useState(false)
-<<<<<<< HEAD
-    const public_url = UsePublicApi()
-=======
-    const public_url = PublicApi()
->>>>>>> 0fcf032afca70eefe8ddf2d557a038e8e8ea0277
 
+    const public_url = UsePublicApi()
+
+  
 
     const formik = useFormik({
         initialValues: {
@@ -59,13 +57,11 @@ const Registration = () => {
             if (!values.nid) {
                 errors.nid = 'Required NID number';
             }
-<<<<<<< HEAD
-            if (!values.role) {
-                errors.role = 'Required Role';
-=======
+
+
             if(!values.role){
                 errors.role = "Role is required";
->>>>>>> 0fcf032afca70eefe8ddf2d557a038e8e8ea0277
+
             }
             if (!values.password) {
                 errors.password = 'Required';
@@ -82,11 +78,7 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
-<<<<<<< HEAD
             const userData = { name: values.name, email: values.email, password: values.password, nid: values.nid, dob: values.dob, role: values.role,phone:values.phone,occupation:values.occupation }
-=======
-            const userData = { name: values.name, email: values.email,phone:values.phonenumber,occupation:values.occupation, password: values.password, nid: values.nid, dob: values.dob,role:values.role }
->>>>>>> 0fcf032afca70eefe8ddf2d557a038e8e8ea0277
             public_url.post("/api/users", userData)
                 .then(response => {
                     // Handle successful registration response
@@ -198,14 +190,9 @@ const Registration = () => {
                                     <option value="owner">Owner</option>
                                     <option value="driver">Driver</option>
                                     <option value="supervisor">Supervisor</option>
-<<<<<<< HEAD
 
                                 </select>
                                 
-=======
-                                    
-                                </select>
->>>>>>> 0fcf032afca70eefe8ddf2d557a038e8e8ea0277
                                 {formik.touched.role && formik.errors.role && <p className='text-red-500'>{formik.errors.role}</p>}
                             </div>
                             <div className="form-control mt-6">

@@ -1,7 +1,7 @@
 import { useFormik } from 'formik';
 import { MdOutlineLogin } from "react-icons/md";
 
-import { Link, json, useNavigate } from "react-router-dom";
+import { Link,  useNavigate } from "react-router-dom";
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import UsePublicApi from '../Hooks/UsePublicApi';
@@ -75,7 +75,7 @@ const SignIn = () => {
         onSubmit: async values => {
             setError("")
             const data = { email: values.email, password: values.password }
-<<<<<<< HEAD
+
             console.log(data);
             try {
 
@@ -87,18 +87,6 @@ const SignIn = () => {
                     token: response.data.token,
                     role: response.data.role
                 }
-=======
-
-            public_url.post("api/users/login", data)
-                .then(response => {
-                    // Handle successful login response
-                    console.log(response.data);
-                })
-                .catch(error => {
-                    // Handle login error
-                    console.error('Registration failed:', error);
-                });
->>>>>>> 0fcf032afca70eefe8ddf2d557a038e8e8ea0277
 
                 if (response?.data) {
                     // setUserName(response?.data.name)

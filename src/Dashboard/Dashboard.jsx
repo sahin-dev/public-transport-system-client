@@ -86,13 +86,36 @@ const DashBoard = () => {
                                     return {
                                         fontWeight: isActive ? "bold" : "",
                                         background: isActive ? " rgb(30,144,255)" : "",
-                                        padding: isActive ? "4px" : "",
+                                        padding: isActive ? "5px" : "",
                                         color: isPending ? "red" : "black",
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
                             >
-                                <p className=" text-center w-full  p-2  ">Vehicle Request</p>
+                                <p className=" text-center w-full p-2   ">Vehicle Request</p>
+                            </NavLink>
+
+                        </div>
+                    }
+                    {/* Get Vehicle Information */}
+                    {
+                        owner && <div className="mt-8 flex flex-col space-y-4">
+
+
+
+                            <NavLink
+                                to="/dashboard/owner/getVehicle"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >
+                                <p className=" text-center w-full  p-2 ">My Vehicle</p>
                             </NavLink>
 
                         </div>
@@ -102,7 +125,10 @@ const DashBoard = () => {
                     {/* driver DashBoard */}
 
                 </div>
+
+                
                 <div className="mt-36">
+                   
                     <Outlet></Outlet>
                 </div>
             </div>

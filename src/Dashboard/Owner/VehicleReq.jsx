@@ -6,6 +6,7 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 
 import UsePrivateApi from "../../Hooks/UsePrivateApi";
+import Swal from "sweetalert2";
 
 const VehicleReq = () => {
 
@@ -55,6 +56,15 @@ const VehicleReq = () => {
         const vehicleData = {name:values.name,type:values.type,desc:values.desc,number:values.number,route:values.route}
 
         const res = await privateUrl.post("api/user/owner/add_vehicle",vehicleData);
+        if(res.data.msg==="Request submitted successfully"){
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: `New Vehicle(${values.number}) request has been Sent To Admin Panal  !`,
+                showConfirmButton: false,
+                timer: 1800
+            });
+        }
         console.log(res);
 
 
@@ -104,9 +114,9 @@ const VehicleReq = () => {
                             </div>
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text text-lg font-bold"> Number</span>
+                                    <span className="label-text text-lg font-bold">BRTA Number</span>
                                 </label>
-                                <input type="number" id="number" name="number" placeholder="number" onChange={formik.handleChange}
+                                <input type="text" id="number" name="number" placeholder="number" onChange={formik.handleChange}
                                     value={formik.values.number} className="input input-bordered" required />
                                 {formik.touched.number && formik.errors.number && <p className='text-red-500'>{formik.errors.number}</p>}
 

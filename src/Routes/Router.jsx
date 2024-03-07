@@ -13,6 +13,7 @@ import Dashboard from "../Dashboard/Dashboard";
 import PrivateRoutes from "./PrivateRoutes";
 import VehicleReq from "../Dashboard/Owner/VehicleReq";
 import GetVehicle from "../Dashboard/Owner/GetVehicle";
+import AssignDriver from "../Dashboard/Owner/AssignDriver";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -46,6 +47,7 @@ const Router = createBrowserRouter([
         errorElement:<Error></Error>,
         element:<PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
         children:[
+            // ownerRoutes
             {
                 path:"/dashboard/owner/vehicleReq",
                 element:<VehicleReq></VehicleReq>
@@ -53,6 +55,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/owner/getVehicle",
                 element:<GetVehicle></GetVehicle>
+            },
+            {
+                path:"/dashboard/owner/assignDriver",
+                element:<AssignDriver></AssignDriver>
             }
             
         ]

@@ -14,6 +14,18 @@ const AssignDriver = () => {
     const [error, setError] = useState("")
     const privateUrl = UsePrivateApi()
 
+    const assignDriver=(email,vehicle)=>{
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: `Driver Added!`,
+            showConfirmButton: false,
+            timer: 1800
+        });
+    
+
+    }
+
 
     const formik = useFormik({
         initialValues: {
@@ -47,15 +59,8 @@ const AssignDriver = () => {
         const assignDriverData = {email:values.email,vehicle_id:values.vehicle_id}
 
         const res = await privateUrl.post("api/user/owner/assign_driver",assignDriverData);
-        if(res.data.msg==="Driver added successfully"){
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: `Driver Added!`,
-                showConfirmButton: false,
-                timer: 1800
-            });
-        }
+        
+         
         console.log(res);
 
 
@@ -96,7 +101,7 @@ const AssignDriver = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <button className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Assign Driver</button>
+                                <button onClick={()=>assignDriver(formik.values.email,formik.values.vehicle_id)} className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Assign Driver</button>
                             </div>
 
                             <div className="flex flex-col w-full">

@@ -83,7 +83,8 @@ const Registration = () => {
                 .then(response => {
                     // Handle successful registration response
                     console.log(response.data);
-                    if (response.data._id) {
+                    if (response.data.msg
+                        ==="User created successfully") {
                         Swal.fire({
                             position: "center",
                             icon: "success",

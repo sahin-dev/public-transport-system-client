@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { BusContextData } from "../../Context/BusContext";
 import UsePrivateApi from "../../Hooks/UsePrivateApi";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 
 
@@ -69,10 +70,11 @@ const ServiceStatus = () => {
                                     <th className="text-white text-base">BRTA Number</th>
                                     <th className="text-white text-base">Type</th>
                                     <th className="text-white text-base">Route</th>
-                                    <th className="text-white text-base">Owner Id</th>
+                                   
                                     <th className="text-white text-base">Created Time</th>
 
                                     <th className="text-white text-base">Status</th>
+                                    <th className="text-white text-base">Assign Worker</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -84,17 +86,17 @@ const ServiceStatus = () => {
                                         <td className="font-semibold">{getV.number}</td>
                                         <td className="font-semibold">{getV.type}</td>
                                         <td className="font-semibold">{getV.route}</td>
-                                        <td className="font-semibold">{getV.owner_id}</td>
+                                        
                                         <td className="font-semibold" >{getV.createdAt}</td>
                                         <td className="font-semibold">
                                         {
-                                                getV.status === "Pending" &&
+                                                getV.status === "pending" &&
 
 
                                                 <p className=" btn btn-warning btn-sm ">{getV.status}</p>
                                             }
                                             {
-                                                getV.status === "accepted" &&
+                                                getV.status ==="active" &&
 
 
                                                 <p className=" btn btn-success btn-sm ">{getV.status}</p>
@@ -105,6 +107,10 @@ const ServiceStatus = () => {
 
                                                 <p className=" btn btn-error btn-sm ">{getV.status}</p>
                                             }
+                                        </td>
+                                        <td className="flex">
+                                            <Link to ={`/dashboard/assignDriver/${getV._id}`}><button className="btn btn-sm font-bold text-sm bg-blue-400"> Driver </button></Link>
+                                            <Link to ={`/dashboard/assignSuperVisor/${getV._id}`}><button className="btn btn-sm font-bold text-sm bg-blue-400"> SuperVisor</button></Link>
                                         </td>
                                     </tr>
                                 ))}

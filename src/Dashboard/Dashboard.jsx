@@ -121,26 +121,7 @@ const DashBoard = () => {
                         </div>
                     }
 
-                    {/* Assign Driver */}
-                    {
-                        owner && <div className="mt-8 flex flex-col space-y-4">
-                            <NavLink
-                                to="/dashboard/owner/assignDriver"
-                                style={({ isActive, isPending, isTransitioning }) => {
-                                    return {
-                                        fontWeight: isActive ? "bold" : "",
-                                        background: isActive ? " rgb(30,144,255)" : "",
-                                        padding: isActive ? "5px" : "",
-                                        color: isPending ? "red" : "black",
-                                        viewTransitionName: isTransitioning ? "slide" : "",
-                                    };
-                                }}
-                            >
-                                <p className=" text-center w-full  p-2 ">Assign Driver</p>
-                            </NavLink>
-
-                        </div>
-                    }
+                   
 
 
                     {/* admin Dashboard */}

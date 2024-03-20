@@ -93,6 +93,9 @@ const SignIn = () => {
                     setUserInfo(userData)
 
                 }
+                else{
+                    alert(response.data.msg)
+                }
             }
             catch (error) {
                 setError(error.message)

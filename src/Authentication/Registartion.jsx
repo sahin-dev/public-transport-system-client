@@ -18,7 +18,7 @@ const Registration = () => {
 
     const public_url = UsePublicApi()
 
-  
+
 
     const formik = useFormik({
         initialValues: {
@@ -59,7 +59,7 @@ const Registration = () => {
             }
 
 
-            if(!values.role){
+            if (!values.role) {
                 errors.role = "Role is required";
 
             }
@@ -78,13 +78,13 @@ const Registration = () => {
 
         onSubmit: values => {
             console.log(values);
-            const userData = { name: values.name, email: values.email, password: values.password, nid: values.nid, dob: values.dob, role: values.role,phone:values.phone,occupation:values.occupation }
+            const userData = { name: values.name, email: values.email, password: values.password, nid: values.nid, dob: values.dob, role: values.role, phone: values.phone, occupation: values.occupation }
             public_url.post("/api/users", userData)
                 .then(response => {
                     // Handle successful registration response
                     console.log(response.data);
                     if (response.data.msg
-                        ==="User created successfully") {
+                        === "User created successfully") {
                         Swal.fire({
                             position: "center",
                             icon: "success",
@@ -93,6 +93,9 @@ const Registration = () => {
                             timer: 1200
                         });
                     }
+                   else{
+                    alert(response.data.msg)
+                   }
                 })
                 .catch(error => {
                     // Handle registration error
@@ -193,7 +196,7 @@ const Registration = () => {
                                     <option value="supervisor">Supervisor</option>
 
                                 </select>
-                                
+
                                 {formik.touched.role && formik.errors.role && <p className='text-red-500'>{formik.errors.role}</p>}
                             </div>
                             <div className="form-control mt-6">

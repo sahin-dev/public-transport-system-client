@@ -14,6 +14,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import VehicleReq from "../Dashboard/Owner/VehicleReq";
 import GetVehicle from "../Dashboard/Owner/GetVehicle";
 import AssignDriver from "../Dashboard/Owner/AssignDriver";
+import AssignSuperVisor from "../Dashboard/Owner/AssignSuperVisor";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -57,8 +58,12 @@ const Router = createBrowserRouter([
                 element:<GetVehicle></GetVehicle>
             },
             {
-                path:"/dashboard/owner/assignDriver",
+                path:"/dashboard/assignDriver/:vehicleID",
                 element:<AssignDriver></AssignDriver>
+            },
+            {
+                path:"/dashboard/assignSuperVisor/:vehicleID",
+                element:<AssignSuperVisor></AssignSuperVisor>
             }
             
         ]

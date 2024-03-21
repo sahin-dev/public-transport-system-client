@@ -4,6 +4,8 @@ import Navbar from "./SharedComponnet/Navbar";
 
 
 const App = () => {
+
+  
   return (
     <div>
       <Navbar></Navbar>

@@ -109,8 +109,8 @@ const ServiceStatus = () => {
                                             }
                                         </td>
                                         <td className="flex">
-                                            <Link to ={`/dashboard/assignDriver/${getV._id}`}><button className="btn btn-sm font-bold text-sm bg-blue-400"> Driver </button></Link>
-                                            <Link to ={`/dashboard/assignSuperVisor/${getV._id}`}><button className="btn btn-sm font-bold text-sm bg-blue-400"> SuperVisor</button></Link>
+                                            <Link to ={`/dashboard/assignDriver/${getV._id}`} className="btn btn-sm font-bold text-sm bg-blue-400" disabled={`${getV.status === 'pending'?true:''}`}> Driver </Link>
+                                            <Link to ={`/dashboard/assignSuperVisor/${getV._id}`} className="btn btn-sm font-bold text-sm bg-blue-400" disabled={`${getV.status === 'pending'?true:''}`}> SuperVisor</Link>
                                         </td>
                                     </tr>
                                 ))}

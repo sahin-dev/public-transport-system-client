@@ -87,10 +87,12 @@ const SignIn = () => {
                     token: response.data.token,
                     role: response.data.role
                 }
+                
 
                 if (response?.data) {
                     // setUserName(response?.data.name)
                     setUserInfo(userData)
+                    localStorage.setItem('userLoggedIn','1');
 
                 }
                 else{

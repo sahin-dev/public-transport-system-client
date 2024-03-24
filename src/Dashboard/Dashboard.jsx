@@ -45,6 +45,7 @@ const DashBoard = () => {
     return (
         <div>
             <Navbar></Navbar>
+           
 
 
             <div className="flex">
@@ -135,12 +136,13 @@ const DashBoard = () => {
 
 
                 <div className="mt-36">
-                  
 
-                    <Outlet></Outlet>
                 </div>
             </div>
+
+            {userLog.name}
         </div>
+         
     );
 };
 

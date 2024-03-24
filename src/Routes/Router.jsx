@@ -16,6 +16,7 @@ import GetVehicle from "../Dashboard/Owner/GetVehicle";
 import AssignDriver from "../Dashboard/Owner/AssignDriver";
 import AssignSuperVisor from "../Dashboard/Owner/AssignSuperVisor";
 import Profile from "../../Profile";
+import AddMoney from "../Dashboard/Passenger/AddMoney";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -67,6 +68,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/assignSuperVisor/:vehicleID",
                 element:<AssignSuperVisor></AssignSuperVisor>
+            },
+            {
+                path:"/dashboard/passenger/addmoney",
+                element:<AddMoney></AddMoney>
             }
             
         ]

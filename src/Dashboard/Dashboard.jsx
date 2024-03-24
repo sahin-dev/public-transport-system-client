@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import profilePhoto from "../../public/Profile/profilephoto.png"
 
 
-
+import { FaMoneyCheckAlt } from "react-icons/fa";
 import { BusContextData } from "../Context/BusContext";
 
 
@@ -63,17 +63,17 @@ const DashBoard = () => {
                     <div>
                         {/* check the role and if is owner is true  and excute h1 class as it is a and oparation  */}
                         {
-                            owner && <h1 className="ml-16 w-1/2 text-right flex  bg-green-300 rounded-md font-bold items-center text-lg justify-center">Role : Owner </h1>
+                            owner && <h1 className=" w-full text-right flex  bg-green-300 rounded-md font-bold items-center text-lg justify-center">Role : Owner </h1>
                         }
                         {/* check the role and if is admin is true  and excute h1 class as it is a and oparation  */}
                         {
-                            admin && <h1 className="ml-16 w-1/2 text-right flex  bg-red-300 rounded-md font-bold items-center text-lg justify-center">Role : Admin </h1>
+                            admin && <h1 className=" w-full text-right flex  bg-red-300 rounded-md font-bold items-center text-lg justify-center">Role : Admin </h1>
                         }
                         {
-                            driver && <h1 className="ml-16 w-1/2 text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Driver </h1>
+                            driver && <h1 className=" w-full text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Driver </h1>
                         }
                         {
-                            passenger && <h1 className="ml-16 w-1/2 text-right flex  bg-blue-300 rounded-md font-bold items-center text-lg justify-center">Role : Passenger </h1>
+                            passenger && <h1 className=" w-full text-right flex  bg-blue-300 rounded-lg font-bold items-center text-lg justify-center">Role : Passenger </h1>
                         }
                     </div>
 
@@ -125,6 +125,34 @@ const DashBoard = () => {
                         </div>
                     }
 
+
+                    {/* passenger Dashboard */}
+                    {
+                        passenger && <div className="mt-8 flex flex-col space-y-4">
+                            <NavLink
+                                to="/dashboard/passenger/addmoney"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >   
+                                
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><FaMoneyCheckAlt className="text-center w-full"></FaMoneyCheckAlt>Add Money</p>
+                             
+                                
+                               
+                            </NavLink>
+                           
+                        </div>
+                    }
+
+
+
                    
 
 
@@ -136,7 +164,7 @@ const DashBoard = () => {
 
 
                 <div className="mt-36">
-
+                    <Outlet></Outlet>
                 </div>
             </div>
 

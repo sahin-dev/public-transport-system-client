@@ -65,8 +65,11 @@ const Navbar = () => {
 
                                 </div>
                             </div>
+                            
+                           
                             <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                                <button onClick={logOutFromProfile}  className="text-black">LogOut</button>
+                               <Link to ="/profile"><li className="text-black" ><button>Profile</button></li></Link> 
+                                <li><button onClick={logOutFromProfile}  className="text-black">LogOut</button></li>
 
                             </ul>
                         </div>

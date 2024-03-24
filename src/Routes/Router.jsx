@@ -15,6 +15,7 @@ import VehicleReq from "../Dashboard/Owner/VehicleReq";
 import GetVehicle from "../Dashboard/Owner/GetVehicle";
 import AssignDriver from "../Dashboard/Owner/AssignDriver";
 import AssignSuperVisor from "../Dashboard/Owner/AssignSuperVisor";
+import Profile from "../../Profile";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -34,10 +35,12 @@ const Router = createBrowserRouter([
                 path:"/login",
                 element:<SignIn></SignIn>
             },
-            // {
-            //     path:"/career",
-            //     element:<Apply></Apply>
-            // },
+            {
+                path:"/profile",
+                element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
+            }
+            
+            
           
 
         ]

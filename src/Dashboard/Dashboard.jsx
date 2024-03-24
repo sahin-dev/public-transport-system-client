@@ -71,6 +71,9 @@ const DashBoard = () => {
                         {
                             driver && <h1 className="ml-16 w-1/2 text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Driver </h1>
                         }
+                        {
+                            passenger && <h1 className="ml-16 w-1/2 text-right flex  bg-blue-300 rounded-md font-bold items-center text-lg justify-center">Role : Passenger </h1>
+                        }
                     </div>
 
                     {/* if is owner is true  and excute div class as it is a and oparation */}
@@ -132,6 +135,7 @@ const DashBoard = () => {
 
 
                 <div className="mt-36">
+                  
 
                     <Outlet></Outlet>
                 </div>

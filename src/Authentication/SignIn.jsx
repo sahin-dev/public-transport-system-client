@@ -85,7 +85,8 @@ const SignIn = () => {
                     email: response.data.email,
                     id: response.data.id,
                     token: response.data.token,
-                    role: response.data.role
+                    role: response.data.role,
+                  
                 }
                 
 

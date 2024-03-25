@@ -15,6 +15,7 @@ const UsePrivateApi = () => {
             const token = userLog.token;
             if (token) {
                 config.headers['secret'] = token; 
+                config.headers['Access-Control-Allow-Origin']="*"
             }
             return config;
         },

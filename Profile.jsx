@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { BusContextData } from "./src/Context/BusContext";
 import UsePrivateApi from "./src/Hooks/UsePrivateApi";
 import { useQuery } from "@tanstack/react-query";
-import profile from "../BusManagement_Client/public/Profile/profilephoto.png"
+import profilePhoto from "./public/Profile/profilephoto.png"
 import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
@@ -36,7 +36,7 @@ const Profile = () => {
                 <title>Profile</title>
             </Helmet>
             <div className="card w-96  ">
-                <figure><img src={profile} width={100} height={100}></img></figure>
+                <figure><img src={profilePhoto} width={100} height={100}></img></figure>
                 
                 <div className="card-body  flex items-center justify-center">
                 <h2 className="card-title font-bold">Role: {getProfile.data.role}</h2>

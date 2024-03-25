@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 
 
 
+
 import { useContext, useState } from 'react';
 
 
@@ -59,7 +60,7 @@ const AssignSuperVisor = () => {
 
           privateUrl.post("api/payment", addMoney)
           .then(res=>{
-           console.log("addmoney object",res);
+            window.location.replace(res.data);
 
           })
           .catch(error=>{

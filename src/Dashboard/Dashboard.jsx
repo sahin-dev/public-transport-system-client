@@ -5,7 +5,10 @@ import profilePhoto from "../../public/Profile/profilephoto.png"
 
 
 import { FaMoneyCheckAlt } from "react-icons/fa";
+import { GiPayMoney } from "react-icons/gi";
 import { BusContextData } from "../Context/BusContext";
+import Profile from "../../Profile";
+import ShowAmount from "./Passenger/ShowAmount";
 
 
 
@@ -73,8 +76,12 @@ const DashBoard = () => {
                             driver && <h1 className=" w-full text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Driver </h1>
                         }
                         {
-                            passenger && <h1 className=" w-full text-right flex  bg-blue-300 rounded-lg font-bold items-center text-lg justify-center">Role : Passenger </h1>
+                            passenger && <h1 className=" w-full text-right flex  bg-blue-300 rounded-md font-bold items-center text-lg justify-center">Role : Passenger </h1>
                         }
+                        {
+                            passenger && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-lg justify-center"><ShowAmount></ShowAmount> </h1>
+                        }
+                    
                     </div>
 
                     {/* if is owner is true  and excute div class as it is a and oparation */}
@@ -143,6 +150,25 @@ const DashBoard = () => {
                             >   
                                 
                                 <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><FaMoneyCheckAlt className="text-center w-full"></FaMoneyCheckAlt>Add Money</p>
+                             
+                                
+                               
+                            </NavLink>
+                           
+                            <NavLink
+                                to="/dashboard/passenger/paymoney"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >   
+                                
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><GiPayMoney className="text-center w-full"></GiPayMoney>Pay Money</p>
                              
                                 
                                

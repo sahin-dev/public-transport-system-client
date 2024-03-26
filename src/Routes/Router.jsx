@@ -17,6 +17,8 @@ import AssignDriver from "../Dashboard/Owner/AssignDriver";
 import AssignSuperVisor from "../Dashboard/Owner/AssignSuperVisor";
 import Profile from "../../Profile";
 import AddMoney from "../Dashboard/Passenger/AddMoney";
+import PayMoney from "../Dashboard/Passenger/PayMoney";
+import PaymentSuccess from "../Dashboard/Passenger/PaymentSuccess";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -39,6 +41,10 @@ const Router = createBrowserRouter([
             {
                 path:"/profile",
                 element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
+            },
+            {
+                path:"/payment/success",
+                element:<PaymentSuccess></PaymentSuccess>
             }
             
             
@@ -72,7 +78,12 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/passenger/addmoney",
                 element:<AddMoney></AddMoney>
-            }
+            },
+            {
+                path:"/dashboard/passenger/paymoney",
+                element:<PayMoney></PayMoney>
+            },
+            
             
         ]
     }

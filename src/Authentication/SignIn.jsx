@@ -80,6 +80,7 @@ const SignIn = () => {
             try {
 
                 const response = await public_url.post("api/users/login", data)
+                console.log("login",response);
                 const userData = {
                     name: response.data.name,
                     email: response.data.email,
@@ -101,6 +102,7 @@ const SignIn = () => {
                 }
             }
             catch (error) {
+                console.log("signIn",error);
                 setError(error.message)
             }
         }

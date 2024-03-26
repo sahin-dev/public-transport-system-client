@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 import UsePrivateApi from "../../Hooks/UsePrivateApi";
 import { BusContextData } from "../../Context/BusContext";
 
-const AssignSuperVisor = () => {
+const AddMoney = () => {
 
     const [error, setError] = useState("")
     const privateUrl = UsePrivateApi()
@@ -129,4 +129,4 @@ const AssignSuperVisor = () => {
     );
 };
 
-export default AssignSuperVisor;
+export default AddMoney;

@@ -79,7 +79,7 @@ const DashBoard = () => {
                             passenger && <h1 className=" w-full text-right flex  bg-blue-300 rounded-md font-bold items-center text-lg justify-center">Role : Passenger </h1>
                         }
                         {
-                            passenger && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-lg justify-center"><ShowAmount></ShowAmount> </h1>
+                            passenger && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
                         }
                     
                     </div>

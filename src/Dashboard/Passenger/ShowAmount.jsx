@@ -32,11 +32,11 @@ const ShowAmount = () => {
     return (
         <div>
             {
-                getProfile.data.wallet.amount>0 && <h2 className="p-2 rounded-sm bg-green-400">Wallet: {getProfile.data.wallet.amount} BDT</h2>
+                getProfile.data.wallet.amount>0 && <h2 className="p-2 rounded-badge bg-green-400">Balance: {getProfile.data.wallet.amount} BDT</h2>
             }
             
             {
-                getProfile.data.wallet.amount<=0 && <h2 className="p-2 rounded-sm bg-red-400">Wallet: {getProfile.data.wallet.amount} BDT</h2>
+                getProfile.data.wallet.amount<=0 && <h2 className="p-2 rounded-badge bg-red-400">Balance: {getProfile.data.wallet.amount} BDT</h2>
             }
              
         </div>

@@ -1,39 +1,21 @@
 import { Helmet } from "react-helmet-async";
 import { useFormik } from 'formik';
-
-
-
-
 import { useContext, useState } from 'react';
-
-
 import Swal from "sweetalert2";
-
-
 import UsePrivateApi from "../../Hooks/UsePrivateApi";
 import { BusContextData } from "../../Context/BusContext";
-
+import { useQuery } from "@tanstack/react-query";
 const PayMoney = () => {
 
     const [error, setError] = useState("")
     const privateUrl = UsePrivateApi()
 
     const { userLog } = useContext(BusContextData)
-
-
-
-
-
     const formik = useFormik({
         initialValues: {
 
             src: "",
             des: ""
-
-
-
-
-
         },
         validate: values => {
             console.log(values);
@@ -45,9 +27,6 @@ const PayMoney = () => {
                 errors.des = 'Required Destination';
             }
 
-
-
-
             return errors
 
         },
@@ -55,21 +34,39 @@ const PayMoney = () => {
 
             setError("")
 
-
             console.log(values);
-
-
-
-
-
 
 
         }
     })
+    const { isLoading, isError, data: getStopage = [], refetch } = useQuery({
+        queryKey: ['getStopage'],
+        queryFn: async () => {
+            // get data of service Request Status   through the server
+            const res = await privateUrl.get("api/route/stopages")
+            console.log("getStopages", res);
+            return res
+
+        }
+
+    })
+
+    // data is Loading 
+    if (isLoading) {
+
+        return <span className="loading loading-infinity   w-[450px] ml-[500px]"></span>
+    }
+    // if any error has been occour 
+    if (isError) {
+        return <span className="ml-[300px] text-red-700 text-4xl">Error : {error.message}</span>
+    }
+
+
+    // 
     return (
         <div>
             <Helmet>
-                <title>Add Money</title>
+                <title>Pay Money</title>
 
             </Helmet>
             <div className=" min-h-screen  ml-[350px] w-full ">
@@ -86,11 +83,12 @@ const PayMoney = () => {
                                     <span className="label-text text-lg font-bold">Source</span>
                                 </label>
                                 <select name="src" id="src" onChange={formik.handleChange}>
-                                    <option value="">--Please choose role--</option>
-                                    <option value="passenger">Passenger</option>
-                                    <option value="owner">Owner</option>
-                                    <option value="driver">Driver</option>
-                                    <option value="supervisor">Supervisor</option>
+                                    <option value="">-- choose Source--</option>
+                                    {getStopage.data.data.stopages.map((gs, idx) => (
+                                        <option key={idx} value={gs.name}>{gs.name}</option>
+                                    ))}
+
+
 
                                 </select>
 
@@ -101,16 +99,15 @@ const PayMoney = () => {
                                     <span className="label-text text-lg font-bold">Destination</span>
                                 </label>
                                 <select name="des" id="des" onChange={formik.handleChange}>
-                                    <option value="">--Please choose role--</option>
-                                    <option value="passenger">Passenger</option>
-                                    <option value="owner">Owner</option>
-                                    <option value="driver">Driver</option>
-                                    <option value="supervisor">Supervisor</option>
-
+                                    <option value="">-- choose Destination--</option>
+                                    {getStopage.data.data.stopages.map((gsd, idx) => (
+                                        <option key={idx} value={gsd.name}>{gsd.name}</option>
+                                    ))}
                                 </select>
 
                                 {formik.touched.des && formik.errors.des && <p className='text-red-500'>{formik.errors.des}</p>}
                             </div>
+
 
 
                             <div className="form-control mt-6">

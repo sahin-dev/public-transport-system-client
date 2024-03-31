@@ -20,6 +20,7 @@ import AddMoney from "../Dashboard/Passenger/AddMoney";
 import PayMoney from "../Dashboard/Passenger/PayMoney";
 import PaymentSuccess from "../Dashboard/Passenger/PaymentSuccess";
 import AddStopages from "../Dashboard/Admin/AddStopages";
+import AddRoute from "../Dashboard/Admin/AddRoute";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -87,6 +88,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/admin/addstopages",
                 element:<AddStopages></AddStopages>
+            },
+            {
+                path:"/dashboard/admin/addroute",
+                element:<AddRoute></AddRoute>
             }
             
             

@@ -10,6 +10,7 @@ import { BusContextData } from "../Context/BusContext";
 import Profile from "../../Profile";
 import ShowAmount from "./Passenger/ShowAmount";
 import { BsFillSignStopFill } from "react-icons/bs";
+import { TbRouteAltLeft } from "react-icons/tb";
 
 
 const DashBoard = () => {
@@ -205,7 +206,7 @@ const DashBoard = () => {
                             </NavLink>
                            
                             <NavLink
-                                to="/dashboard/passenger/paymoney"
+                                to="/dashboard/admin/addroute"
                                 style={({ isActive, isPending, isTransitioning }) => {
                                     return {
                                         fontWeight: isActive ? "bold" : "",
@@ -217,7 +218,7 @@ const DashBoard = () => {
                                 }}
                             >   
                                 
-                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><GiPayMoney className="text-center w-full"></GiPayMoney>Pay Money</p>
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><TbRouteAltLeft className="text-center w-full"></TbRouteAltLeft>Add Route</p>
                              
                                 
                                

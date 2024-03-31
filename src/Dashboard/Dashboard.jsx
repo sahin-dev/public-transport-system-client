@@ -9,7 +9,7 @@ import { GiPayMoney } from "react-icons/gi";
 import { BusContextData } from "../Context/BusContext";
 import Profile from "../../Profile";
 import ShowAmount from "./Passenger/ShowAmount";
-
+import { BsFillSignStopFill } from "react-icons/bs";
 
 
 const DashBoard = () => {
@@ -183,6 +183,48 @@ const DashBoard = () => {
 
 
                     {/* admin Dashboard */}
+                    {
+                        admin && <div className="mt-8 flex flex-col space-y-4">
+                            <NavLink
+                                to="/dashboard/admin/addstopages"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >   
+                                
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><BsFillSignStopFill className="text-center w-full"></BsFillSignStopFill>Add Stopages</p>
+                             
+                                
+                               
+                            </NavLink>
+                           
+                            <NavLink
+                                to="/dashboard/passenger/paymoney"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >   
+                                
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><GiPayMoney className="text-center w-full"></GiPayMoney>Pay Money</p>
+                             
+                                
+                               
+                            </NavLink>
+                           
+                        </div>
+                    }
 
                     {/* driver DashBoard */}
 

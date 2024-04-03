@@ -11,6 +11,7 @@ import Profile from "../../Profile";
 import ShowAmount from "./Passenger/ShowAmount";
 import { BsFillSignStopFill } from "react-icons/bs";
 import { TbRouteAltLeft } from "react-icons/tb";
+import { MdOutlineFactCheck } from "react-icons/md";
 
 
 const DashBoard = () => {
@@ -77,10 +78,16 @@ const DashBoard = () => {
                             driver && <h1 className=" w-full text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Driver </h1>
                         }
                         {
+                            supervisor && <h1 className=" w-full text-right flex  bg-cyan-300 rounded-md font-bold items-center text-lg justify-center">Role : Supervisor </h1>
+                        }
+                        {
                             passenger && <h1 className=" w-full text-right flex  bg-blue-300 rounded-md font-bold items-center text-lg justify-center">Role : Passenger </h1>
                         }
                         {
                             passenger && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
+                        }
+                        {
+                            supervisor && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
                         }
                     
                     </div>
@@ -227,7 +234,33 @@ const DashBoard = () => {
                         </div>
                     }
 
-                    {/* driver DashBoard */}
+                    {/* Supervisor  DashBoard */}
+                    {
+                        supervisor && <div className="mt-8 flex flex-col space-y-4">
+                            <NavLink
+                                to="/dashboard/supervisor/ticketcheck"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >   
+                                
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><MdOutlineFactCheck className="text-center w-full"></MdOutlineFactCheck>Check Ticket</p>
+                             
+                                
+                               
+                            </NavLink>
+                           
+                          
+                           
+                        </div>
+                    }
+
 
                 </div>
 

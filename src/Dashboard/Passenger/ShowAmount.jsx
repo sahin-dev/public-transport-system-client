@@ -13,7 +13,7 @@ const ShowAmount = () => {
             // get data of service Request Status   through the server
             const res = await PrivateApi.get("/api/users/profile")
             
-            console.log("getProfile", res);
+           
             return res
 
         }

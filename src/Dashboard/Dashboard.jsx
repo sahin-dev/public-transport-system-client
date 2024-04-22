@@ -12,7 +12,8 @@ import ShowAmount from "./Passenger/ShowAmount";
 import { BsFillSignStopFill } from "react-icons/bs";
 import { TbRouteAltLeft } from "react-icons/tb";
 import { MdOutlineFactCheck } from "react-icons/md";
-
+import { FcBusinessman } from "react-icons/fc";
+import { FaMinusCircle } from "react-icons/fa";
 
 const DashBoard = () => {
     const { userLog } = useContext(BusContextData)
@@ -50,7 +51,7 @@ const DashBoard = () => {
     return (
         <div>
             <Navbar></Navbar>
-           
+
 
 
             <div className="flex">
@@ -89,7 +90,7 @@ const DashBoard = () => {
                         {
                             supervisor && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
                         }
-                    
+
                     </div>
 
                     {/* if is owner is true  and excute div class as it is a and oparation */}
@@ -155,14 +156,14 @@ const DashBoard = () => {
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
-                            >   
-                                
+                            >
+
                                 <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><FaMoneyCheckAlt className="text-center w-full"></FaMoneyCheckAlt>Add Money</p>
-                             
-                                
-                               
+
+
+
                             </NavLink>
-                           
+
                             <NavLink
                                 to="/dashboard/passenger/paymoney"
                                 style={({ isActive, isPending, isTransitioning }) => {
@@ -174,20 +175,20 @@ const DashBoard = () => {
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
-                            >   
-                                
+                            >
+
                                 <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><GiPayMoney className="text-center w-full"></GiPayMoney>Pay Money</p>
-                             
-                                
-                               
+
+
+
                             </NavLink>
-                           
+
                         </div>
                     }
 
 
 
-                   
+
 
 
                     {/* admin Dashboard */}
@@ -204,14 +205,14 @@ const DashBoard = () => {
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
-                            >   
-                                
+                            >
+
                                 <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><BsFillSignStopFill className="text-center w-full"></BsFillSignStopFill>Add Stopages</p>
-                             
-                                
-                               
+
+
+
                             </NavLink>
-                           
+
                             <NavLink
                                 to="/dashboard/admin/addroute"
                                 style={({ isActive, isPending, isTransitioning }) => {
@@ -223,14 +224,52 @@ const DashBoard = () => {
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
+                            >
+
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><TbRouteAltLeft className="text-center w-full"></TbRouteAltLeft>Add Route</p>
+
+
+
+                            </NavLink>
+                            {/* accept and reject the ownership request */}
+                            <NavLink
+                                to="/dashboard/admin/isAcceptRequest"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >
+
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><FcBusinessman className="text-center w-full"></FcBusinessman>OwnerShip Request</p>
+
+
+
+                            </NavLink>
+{/* Withdarw the service */}
+                            <NavLink
+                                to="/dashboard/admin/withdrawService"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
                             >   
                                 
-                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><TbRouteAltLeft className="text-center w-full"></TbRouteAltLeft>Add Route</p>
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " >< FaMinusCircle className="text-center w-full"></ FaMinusCircle>Withdraw Service</p>
                              
                                 
                                
                             </NavLink>
-                           
+
                         </div>
                     }
 
@@ -248,16 +287,20 @@ const DashBoard = () => {
                                         viewTransitionName: isTransitioning ? "slide" : "",
                                     };
                                 }}
-                            >   
-                                
+                            >
+
                                 <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><MdOutlineFactCheck className="text-center w-full"></MdOutlineFactCheck>Check Ticket</p>
-                             
-                                
-                               
+
+
+
                             </NavLink>
-                           
+
                           
-                           
+
+
+
+
+
                         </div>
                     }
 
@@ -272,7 +315,7 @@ const DashBoard = () => {
 
             {userLog.name}
         </div>
-         
+
     );
 };
 

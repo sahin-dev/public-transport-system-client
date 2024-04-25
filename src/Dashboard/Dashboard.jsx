@@ -12,7 +12,7 @@ import ShowAmount from "./Passenger/ShowAmount";
 import { BsFillSignStopFill } from "react-icons/bs";
 import { TbRouteAltLeft } from "react-icons/tb";
 import { MdOutlineFactCheck } from "react-icons/md";
-import { FcBusinessman } from "react-icons/fc";
+import { MdEmojiTransportation } from "react-icons/md";
 import { FaMinusCircle } from "react-icons/fa";
 
 const DashBoard = () => {
@@ -245,7 +245,7 @@ const DashBoard = () => {
                                 }}
                             >
 
-                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " ><FcBusinessman className="text-center w-full"></FcBusinessman>OwnerShip Request</p>
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " >< MdEmojiTransportation className="text-center w-full"></ MdEmojiTransportation>Transport Request</p>
 
 
 
@@ -264,7 +264,7 @@ const DashBoard = () => {
                                 }}
                             >   
                                 
-                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " >< FaMinusCircle className="text-center w-full"></ FaMinusCircle>Withdraw Service</p>
+                                <p className=" text-center w-full  p-2 border border-blue-300 rounded-md " >< FaMinusCircle className="text-center w-full"></ FaMinusCircle>Withdraw Request</p>
                              
                                 
                                

@@ -22,6 +22,7 @@ import PaymentSuccess from "../Dashboard/Passenger/PaymentSuccess";
 import AddStopages from "../Dashboard/Admin/AddStopages";
 import AddRoute from "../Dashboard/Admin/AddRoute";
 import TicketCheck from "../Dashboard/Supervisor/TicketCheck";
+import TransportRequest from "../Dashboard/Admin/TransportRequest";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -93,6 +94,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/admin/addroute",
                 element:<AddRoute></AddRoute>
+            },
+            {
+                path:"/dashboard/admin/isAcceptRequest",
+                element:<TransportRequest></TransportRequest>
             },
             {
                 path:"/dashboard/supervisor/ticketcheck",

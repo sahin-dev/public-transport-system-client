@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import UsePrivateApi from "../../Hooks/UsePrivateApi";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet-async";
+import { useQuery } from "@tanstack/react-query";
 
 
 const AddRoute = () => {
@@ -36,10 +37,12 @@ const AddRoute = () => {
 
 
             const addRoute = { source:values.src,destination:values.des,length:values.len }
+            console.log("AddRoute",values);
+          
 
-            privateUrl.post("api/route", addRoute)
+            privateUrl.post("api/admin/route", addRoute)
                 .then(res => {
-                    console.log(res);
+                    console.log("AddRoute",res);
                     if (res.data.status === "success") {
                         Swal.fire({
                             position: "center",
@@ -53,13 +56,36 @@ const AddRoute = () => {
                 })
                 .catch(error => {
 
-                    console.log(error);
+                    console.log("AddRoute",error);
                     alert(error)
                 })
 
 
         }
     })
+
+    const { isLoading, isError, data: getStopage = [], refetch } = useQuery({
+        queryKey: ['getStopage'],
+        queryFn: async () => {
+            // get data of service Request Status   through the server
+            const res = await privateUrl.get("api/route/stopages")
+            console.log("getStopages", res);
+            return res
+
+        }
+
+    })
+
+    // data is Loading 
+    if (isLoading) {
+
+        return <span className="loading loading-infinity   w-[450px] ml-[500px]"></span>
+    }
+    // if any error has been occour 
+    if (isError) {
+        return <span className="ml-[300px] text-red-700 text-4xl">Error : {error.message}</span>
+    }
+
     return (
         <div>
             <Helmet>
@@ -79,8 +105,12 @@ const AddRoute = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Source</span>
                                 </label>
-                                <input type="text" id="src" name="src" placeholder="source" onChange={formik.handleChange}
-                                    value={formik.values.src} className="input input-bordered" required />
+                                <select name="src" id="src" onChange={formik.handleChange}>
+                                    <option value="">-- choose Source--</option>
+                                    {getStopage.data.data.stopages.map((gs, idx) => (
+                                        <option key={idx} value={gs._id}>{gs.name}</option>
+                                    ))}
+                                </select>
                                 {formik.touched.src && formik.errors.src && <p className='text-red-500'>{formik.errors.src}</p>}
 
                             </div>
@@ -88,8 +118,14 @@ const AddRoute = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Destination</span>
                                 </label>
-                                <input type="text" id="des" name="des" placeholder="destination" onChange={formik.handleChange}
-                                    value={formik.values.des} className="input input-bordered" required />
+                                <select name="des" id="des" onChange={formik.handleChange}>
+                                    <option value="">-- choose Destination--</option>
+                                    {getStopage.data.data.stopages.map((gsd, idx) => (
+                                        <option key={idx} value={gsd._id}>{gsd.name}</option>
+                                    ))}
+                                </select>
+
+                                
                                 {formik.touched.des && formik.errors.des && <p className='text-red-500'>{formik.errors.des}</p>}
 
                             </div>

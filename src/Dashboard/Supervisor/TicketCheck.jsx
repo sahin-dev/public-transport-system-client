@@ -38,8 +38,19 @@ const TicketCheck = () => {
                     if (res.data.msg === "Ticket found") {
                         Swal.fire({
                             title: "Ticket is Found",
-                            text: "",
-                            icon: "success",
+                            text: ` Source:    ${res.data.data.source.name},
+                              Distantion : ${res.data.data.destination.name},
+                              Amount: ${res.data.data.amount}Taka,
+                              Validate At: ${res.data.data.valid_till},
+                              Vehicle_ID:${res.data.data.vehicle}
+
+                            
+                              
+                              `,
+
+
+
+                            icon: "info",
                             showCancelButton: true,
                             confirmButtonColor: "#3085d6",
                             cancelButtonColor: "#d33",

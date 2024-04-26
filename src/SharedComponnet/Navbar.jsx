@@ -29,12 +29,11 @@ const Navbar = () => {
     const navComponents = <>
     
        <li> <NavLink to="/" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Home</NavLink></li>
-       <li> <NavLink to="/track" className="font-bold hover:text-blue-600 text-base hover:font-bold hover:text-xl  mr-4">Tracking</NavLink></li>
-        
-        <li><NavLink to="/about" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">About</NavLink></li>
+      
+    
         <li><NavLink to="/price" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Pricing</NavLink></li>
-        <li><NavLink to ="/contact" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Contact</NavLink></li>
-        <li><NavLink to="/career" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Career</NavLink></li>
+       
+        
         <li><NavLink to="/dashboard" className="font-bold hover:text-blue-500 hover:font-bold text-base hover:text-xl  mr-4">DASHBORD</NavLink></li>
 
 
@@ -91,7 +90,7 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <div className="navbar-center hidden lg:flex">
+                <div className="navbar-start hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navComponents}
                     </ul>

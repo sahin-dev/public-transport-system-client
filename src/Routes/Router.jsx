@@ -23,6 +23,7 @@ import AddStopages from "../Dashboard/Admin/AddStopages";
 import AddRoute from "../Dashboard/Admin/AddRoute";
 import TicketCheck from "../Dashboard/Supervisor/TicketCheck";
 import TransportRequest from "../Dashboard/Admin/TransportRequest";
+import Price from "../Price/Price";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -46,9 +47,14 @@ const Router = createBrowserRouter([
                 path:"/profile",
                 element:<PrivateRoutes><Profile></Profile></PrivateRoutes>
             },
+           
             {
                 path:"/payment/success",
                 element:<PaymentSuccess></PaymentSuccess>
+            },
+            {
+                path:"/price",
+                element:<Price></Price>
             }
             
             

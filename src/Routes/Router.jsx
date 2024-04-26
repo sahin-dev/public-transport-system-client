@@ -25,6 +25,7 @@ import TicketCheck from "../Dashboard/Supervisor/TicketCheck";
 import TransportRequest from "../Dashboard/Admin/TransportRequest";
 import Price from "../Price/Price";
 import Service from "../Service/Service";
+import MailNotify from "../MailNotify/MailNotify";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -60,6 +61,10 @@ const Router = createBrowserRouter([
             {
                 path:"/service",
                 element:<Service></Service>
+            },
+            {
+                path:"/mailnotify",
+                element:<MailNotify></MailNotify>
             }
             
             

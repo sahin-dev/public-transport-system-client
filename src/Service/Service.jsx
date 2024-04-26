@@ -11,7 +11,7 @@ const Service = () => {
       queryKey: ['activeBus'],
       queryFn: async () => {
          // get data of service Request Status   through the server
-         const res = await privateUrl.get("api/admin/vehicles",)
+         const res = await privateUrl.get("api/users/vehicles",)
          console.log("activeBus", res);
          return res
 
@@ -38,7 +38,7 @@ const Service = () => {
                </figure>
                <div className="card-body items-center text-center">
                   <h2 className="card-title">{abus.name}</h2>
-                  {abus.status === "active" && <div className="badge badge-success p-4 gap-2">
+                  {abus.status === "active" && <div className="badge badge-success p-4 text-white font-bold gap-2">
                      
                      Active
                   </div>}

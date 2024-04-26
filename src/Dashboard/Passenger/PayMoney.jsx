@@ -15,7 +15,9 @@ const PayMoney = () => {
         initialValues: {
 
             src: "",
-            des: ""
+            des: "",
+            amount:"",
+            vId:""
         },
         validate: values => {
             console.log(values);
@@ -26,6 +28,12 @@ const PayMoney = () => {
             if (!values.des) {
                 errors.des = 'Required Destination';
             }
+            if (!values.amount) {
+                errors.amount = 'Required amount';
+            }
+            if (!values.vId) {
+                errors.vId = 'Required Vehicle Id';
+            }
 
             return errors
 
@@ -34,7 +42,18 @@ const PayMoney = () => {
 
             setError("")
 
-            console.log(values);
+            const paymoney = {source:values.src,destination:values.des,amount:values.amount,vehicleuid:values.vId}
+            console.log(paymoney);
+            privateUrl.post("api/users/purchase", paymoney)
+            .then(res=>{
+               console.log("paymoney",res);
+              })
+              .catch(error=>{
+                
+                console.log("error",error);
+            })
+
+            
 
 
         }
@@ -107,6 +126,24 @@ const PayMoney = () => {
 
                                 {formik.touched.des && formik.errors.des && <p className='text-red-500'>{formik.errors.des}</p>}
                             </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-lg font-bold"> Amount</span>
+                                </label>
+                                <input type="number" id="amount" name="amount" placeholder=" amount" onChange={formik.handleChange}
+                                    value={formik.values.amount} className="input input-bordered" required />
+                                {formik.touched.amount && formik.errors.amount && <p className='text-red-500'>{formik.errors.amount}</p>}
+
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-lg font-bold">BRTA Number</span>
+                                </label>
+                                <input type="text" id="vId" name="vId" placeholder="vId" onChange={formik.handleChange}
+                                    value={formik.values.vId} className="input input-bordered" required />
+                                {formik.touched.vId && formik.errors.vId && <p className='text-red-500'>{formik.errors.vId}</p>}
+
+                            </div>
 
 
 
@@ -114,10 +151,7 @@ const PayMoney = () => {
                                 <button className="btn bg-blue-700 text-2xl font-semibold text-white hover:bg-blue-800 btn-primary">Pay</button>
                             </div>
 
-                            <div className="flex flex-col w-full">
-                                <div className="divider divider-start"></div>
-
-                            </div>
+                           
 
                         </form>
                     </div>

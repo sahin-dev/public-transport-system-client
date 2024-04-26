@@ -26,6 +26,7 @@ import TransportRequest from "../Dashboard/Admin/TransportRequest";
 import Price from "../Price/Price";
 import Service from "../Service/Service";
 import MailNotify from "../MailNotify/MailNotify";
+import MailConfirmed from "../MailNotify/MailConfirmed";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -65,6 +66,10 @@ const Router = createBrowserRouter([
             {
                 path:"/mailnotify",
                 element:<MailNotify></MailNotify>
+            },
+            {
+                path:"/mailconfirmed",
+                element:<MailConfirmed></MailConfirmed>
             }
             
             

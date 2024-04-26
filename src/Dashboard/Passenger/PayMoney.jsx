@@ -41,12 +41,12 @@ const PayMoney = () => {
         onSubmit: async values => {
 
             setError("")
-
+            console.log("PayMoneyValues",values)
             const paymoney = {source:values.src,destination:values.des,amount:values.amount,vehicleuid:values.vId}
             console.log(paymoney);
             privateUrl.post("api/users/purchase", paymoney)
             .then(res=>{
-               console.log("paymoney",res);
+               console.log("Ticket",res);
               })
               .catch(error=>{
                 
@@ -101,10 +101,10 @@ const PayMoney = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Source</span>
                                 </label>
-                                <select name="src" id="src" onChange={formik.handleChange}>
+                                <select name="src"  id="src" onChange={formik.handleChange}>
                                     <option value="">-- choose Source--</option>
                                     {getStopage.data.data.stopages.map((gs, idx) => (
-                                        <option key={idx} value={gs.name}>{gs.name}</option>
+                                        <option key={idx} value={gs._id}>{gs.name}</option>
                                     ))}
 
 
@@ -117,10 +117,10 @@ const PayMoney = () => {
                                 <label className="label">
                                     <span className="label-text text-lg font-bold">Destination</span>
                                 </label>
-                                <select name="des" id="des" onChange={formik.handleChange}>
+                                <select name="des"  id="des" onChange={formik.handleChange}>
                                     <option value="">-- choose Destination--</option>
                                     {getStopage.data.data.stopages.map((gsd, idx) => (
-                                        <option key={idx} value={gsd.name}>{gsd.name}</option>
+                                        <option key={idx} value={gsd._id}>{gsd.name}</option>
                                     ))}
                                 </select>
 

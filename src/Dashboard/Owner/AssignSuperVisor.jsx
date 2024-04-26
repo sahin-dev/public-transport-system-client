@@ -51,11 +51,11 @@ const AssignSuperVisor = () => {
 
           privateUrl.post("/api/user/owner/assign_supervisor", assignSuperVisor)
           .then(res=>{
-            if (res.data.msg === "Supervisor added successfully") {
+            if(res.data.status==="success"){
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: "SuperVisor Added SuccessFul",
+                    title: "An Eamil Has been Sent",
                     showConfirmButton: false,
                     timer: 1800
                 });

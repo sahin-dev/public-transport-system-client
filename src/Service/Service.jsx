@@ -49,6 +49,7 @@ const Service = () => {
                   <div className="flex gap-2 mt-2">
                      <p className="" ><span className="font-bold">BRTA_No : </span>{abus.number}</p>
                      <p className=""><span className="font-bold">Route : </span> {abus.route}</p>
+                     <p className=""><span className="font-bold">UniqueId : </span> {abus.uniqueId}</p>
                   </div>
 
                </div>

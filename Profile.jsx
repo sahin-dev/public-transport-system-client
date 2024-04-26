@@ -65,7 +65,7 @@ const Profile = () => {
                         <p className="card-title mt-4 text-2xl">Phone: {getProfile.data.phone}</p>
                         <p className="card-title mt-4 text-2xl">NID: {getProfile.data.nid}</p>
                         <p className="card-title mt-4 text-2xl">Occupation: {getProfile.data.occupation}</p>
-                        <p className="card-title mt-4 text-2xl">Wallet: {getProfile.data.wallet.amount} BDT</p>
+                        {/* <p className="card-title mt-4 text-2xl">Wallet: {getProfile.data.wallet.amount} BDT</p> */}
 
 
 

@@ -52,11 +52,12 @@ const AssignDriver = () => {
 
             privateUrl.post("/api/user/owner/assign_driver", assignDriverData)
             .then(res=>{
-               if(res.data.msg==="Driver added successfully"){
+                
+               if(res.data.status==="success"){
                 Swal.fire({
                     position: "center",
                     icon: "success",
-                    title: `Driver added successfully  !`,
+                    title: `An Email has been sent ! "  !`,
                     showConfirmButton: false,
                     timer: 1800
                 });

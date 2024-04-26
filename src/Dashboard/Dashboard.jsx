@@ -90,6 +90,9 @@ const DashBoard = () => {
                         {
                             supervisor && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
                         }
+                        {
+                            owner && <h1 className=" w-full text-right flex  mt-4  font-bold items-center text-base justify-center"><ShowAmount></ShowAmount> </h1>
+                        }
 
                     </div>
 

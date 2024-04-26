@@ -33,6 +33,9 @@ const Navbar = () => {
     
         <li><NavLink to="/price" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Pricing</NavLink></li>
        
+    
+        <li><NavLink to="/service" className="font-bold hover:text-blue-600 hover:font-bold text-base hover:text-xl  mr-4">Service</NavLink></li>
+       
         
         <li><NavLink to="/dashboard" className="font-bold hover:text-blue-500 hover:font-bold text-base hover:text-xl  mr-4">DASHBORD</NavLink></li>
 
@@ -90,7 +93,7 @@ const Navbar = () => {
                     </div>
 
                 </div>
-                <div className="navbar-start hidden lg:flex">
+                <div className="navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {navComponents}
                     </ul>

@@ -24,6 +24,7 @@ import AddRoute from "../Dashboard/Admin/AddRoute";
 import TicketCheck from "../Dashboard/Supervisor/TicketCheck";
 import TransportRequest from "../Dashboard/Admin/TransportRequest";
 import Price from "../Price/Price";
+import Service from "../Service/Service";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -55,6 +56,10 @@ const Router = createBrowserRouter([
             {
                 path:"/price",
                 element:<Price></Price>
+            },
+            {
+                path:"/service",
+                element:<Service></Service>
             }
             
             

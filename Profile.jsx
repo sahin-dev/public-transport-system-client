@@ -52,7 +52,7 @@ const Profile = () => {
                 </div>
             </div> */}
             <div className=" bg-base-300">
-                <div className=" flex flex-col-reverse gap-8">
+                <div className=" flex flex-row-reverse gap-8">
                     <div>
                         <img src={profilePhoto} className=" rounded-sm shadow-2xl" />
                         <h2 className="card-title font-bold text-2xl mt-3">Role: {getProfile.data.role}</h2>

@@ -27,6 +27,8 @@ import Price from "../Price/Price";
 import Service from "../Service/Service";
 import MailNotify from "../MailNotify/MailNotify";
 import MailConfirmed from "../MailNotify/MailConfirmed";
+import RequestWithdrow from "../Dashboard/Owner/RequestWithdrow";
+import AdminWithdrawRequest from "../Dashboard/Admin/AdminWithdrawRequest";
 const Router = createBrowserRouter([
     {
         path: "/",
@@ -93,6 +95,10 @@ const Router = createBrowserRouter([
                 element:<GetVehicle></GetVehicle>
             },
             {
+                path:"/dashboard/owner/requestWithdrow",
+                element:<RequestWithdrow></RequestWithdrow>
+            },
+            {
                 path:"/dashboard/assignDriver/:vehicleID",
                 element:<AssignDriver></AssignDriver>
             },
@@ -119,6 +125,10 @@ const Router = createBrowserRouter([
             {
                 path:"/dashboard/admin/isAcceptRequest",
                 element:<TransportRequest></TransportRequest>
+            },
+            {
+            path:"/dashboard/admin/withdrawRequest",
+            element:<AdminWithdrawRequest></AdminWithdrawRequest>
             },
             {
                 path:"/dashboard/supervisor/ticketcheck",

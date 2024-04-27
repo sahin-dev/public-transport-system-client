@@ -47,6 +47,16 @@ const PayMoney = () => {
             privateUrl.post("api/users/purchase", paymoney)
             .then(res=>{
                console.log("Ticket",res);
+               if(res.data.msg==="Ticket purchased "){
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: ` Ticket Purchased`,
+                    text: `TicketId:    ${res.data.data.ticketUID}`,
+                    showConfirmButton: true,
+                
+                });
+               }
               })
               .catch(error=>{
                 

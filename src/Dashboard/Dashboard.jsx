@@ -140,6 +140,21 @@ const DashBoard = () => {
                             >
                                 <p className=" text-center w-full  p-2">My Vehicle</p>
                             </NavLink>
+                            {/* Request Withdraw  */}
+                            <NavLink
+                                to="/dashboard/owner/requestWithdrow"
+                                style={({ isActive, isPending, isTransitioning }) => {
+                                    return {
+                                        fontWeight: isActive ? "bold" : "",
+                                        background: isActive ? " rgb(30,144,255)" : "",
+                                        padding: isActive ? "5px" : "",
+                                        color: isPending ? "red" : "black",
+                                        viewTransitionName: isTransitioning ? "slide" : "",
+                                    };
+                                }}
+                            >
+                                <p className=" text-center w-full  p-2">Request Withdrow</p>
+                            </NavLink>
 
                         </div>
                     }
@@ -255,7 +270,7 @@ const DashBoard = () => {
                             </NavLink>
 {/* Withdarw the service */}
                             <NavLink
-                                to="/dashboard/admin/withdrawService"
+                                to="/dashboard/admin/withdrawRequest"
                                 style={({ isActive, isPending, isTransitioning }) => {
                                     return {
                                         fontWeight: isActive ? "bold" : "",
